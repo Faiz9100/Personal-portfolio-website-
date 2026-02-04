@@ -1,0 +1,441 @@
+/* ============ ABOUT PAGE ============ */
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 90px 40px 60px;
+  position: relative;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 51, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-container {
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.about-title {
+  font-size: 3rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+}
+
+.title-highlight {
+  background: linear-gradient(135deg, #ff6600 0%, #ff9933 50%, #ffcc00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 204, 100, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
+/* ============ EDUCATION SECTION ============ */
+.education-section {
+  margin-bottom: 50px;
+  animation: fadeIn 1.2s ease-out 0.4s both;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #ffcc00;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+.section-icon {
+  font-size: 2rem;
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.education-card {
+  background: rgba(255, 102, 0, 0.08);
+  border: 2px solid rgba(255, 102, 0, 0.3);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.8s ease-out;
+  animation-delay: calc(var(--card-index, 0) * 0.15s);
+  animation-fill-mode: both;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.15);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.education-card:hover::before {
+  left: 100%;
+}
+
+.education-card:hover {
+  background: rgba(255, 102, 0, 0.12);
+  border-color: rgba(255, 153, 51, 0.6);
+  box-shadow: 0 0 40px rgba(255, 102, 0, 0.4), inset 0 0 20px rgba(255, 102, 0, 0.08);
+  transform: translateY(-8px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: iconScale 0.8s ease-out;
+}
+
+@keyframes iconScale {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-content {
+  animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.school-name {
+  font-size: 1.4rem;
+  color: #ffcc00;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+.board-name {
+  font-size: 1rem;
+  color: rgba(255, 204, 0, 0.7);
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+}
+
+.education-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 102, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.education-card:hover .detail-item {
+  border-bottom-color: rgba(255, 102, 0, 0.4);
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: rgba(255, 204, 100, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.education-card:hover .detail-value {
+  color: #ffcc00;
+}
+
+/* ============ COMING SOON ============ */
+.coming-soon {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 102, 0, 0.06);
+  border: 2px dashed rgba(255, 102, 0, 0.3);
+  border-radius: 12px;
+  margin-top: 40px;
+  animation: fadeIn 1.5s ease-out 0.6s both;
+}
+
+.coming-soon p {
+  font-size: 1rem;
+  color: rgba(255, 204, 100, 0.7);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.scroll-animate {
+  animation: scrollReveal 0.8s ease-out forwards !important;
+}
+
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 1024px) {
+  .about-page {
+    padding: 80px 30px 50px;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  .education-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .education-card {
+    padding: 25px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .school-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 70px 20px 40px;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .education-card {
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+  }
+
+  .school-name {
+    font-size: 1.1rem;
+  }
+
+  .board-name {
+    font-size: 0.9rem;
+  }
+
+  .detail-label {
+    font-size: 0.85rem;
+  }
+
+  .detail-value {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 60px 15px 30px;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .about-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .about-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .section-icon {
+    font-size: 1.5rem;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .education-card {
+    padding: 15px;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .school-name {
+    font-size: 1rem;
+  }
+
+  .board-name {
+    font-size: 0.85rem;
+  }
+
+  .education-details {
+    gap: 8px;
+  }
+
+  .detail-item {
+    padding: 8px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .detail-label {
+    font-size: 0.75rem;
+  }
+
+  .detail-value {
+    font-size: 0.85rem;
+  }
+
+  .coming-soon {
+    padding: 25px;
+    margin-top: 30px;
+  }
+
+  .coming-soon p {
+    font-size: 0.85rem;
+  }
+}
