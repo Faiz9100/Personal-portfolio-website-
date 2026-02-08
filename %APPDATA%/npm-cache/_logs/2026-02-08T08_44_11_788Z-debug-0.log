@@ -5,10 +5,10 @@
 4 silly config load:file:C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project\.npmrc
 5 silly config load:file:C:\Users\Faiz\.npmrc
 6 silly config load:file:C:\Users\Faiz\AppData\Roaming\npm\etc\npmrc
-7 verbose title npm run build
-8 verbose argv "run" "build"
-9 verbose logfile logs-max:10 dir:C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project\%APPDATA%\npm-cache\_logs\2026-02-04T15_32_20_777Z-
-10 verbose logfile C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project\%APPDATA%\npm-cache\_logs\2026-02-04T15_32_20_777Z-debug-0.log
+7 verbose title npm run lint
+8 verbose argv "run" "lint"
+9 verbose logfile logs-max:10 dir:C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project\%APPDATA%\npm-cache\_logs\2026-02-08T08_44_11_788Z-
+10 verbose logfile C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project\%APPDATA%\npm-cache\_logs\2026-02-08T08_44_11_788Z-debug-0.log
 11 silly logfile done cleaning log files
 12 verbose cwd C:\Users\Faiz\OneDrive\Documenti\project\personal-portfolio\vite-project
 13 verbose os Windows_NT 10.0.26200

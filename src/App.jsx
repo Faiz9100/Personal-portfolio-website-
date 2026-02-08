@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react' // Rebuild trigger 2
 import './App.css'
 import './Skills.css'
 import './About.css'
+import './Projects.css'
 import './Contact.css'
 import { useScrollAnimation } from './useScrollAnimation'
 
@@ -56,6 +57,37 @@ const skillsData = [
   }
 ]
 
+const projectsData = [
+  {
+    title: 'Todo List App',
+    category: 'Productivity',
+    description: 'A simple and efficient todo list application to track daily tasks and manage productivity.',
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    tech: ['React', 'CSS', 'Local Storage'],
+    github: 'https://github.com/Faiz9100/Todo-App',
+    demo: 'https://todoappfaiz.netlify.app/'
+  },
+  {
+    title: 'Skill Flow',
+    category: 'Education Platform',
+    description: 'A comprehensive platform designed to streamline skill acquisition and tracking for students and professionals.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    tech: ['React.js', 'JavaScript', 'CSS', 'Python Django'],
+    github: 'https://github.com/Faiz9100/Skill-Flow-',
+    demo: '#'
+  },
+  {
+    title: 'Personal Portfolio',
+    category: 'Web Development',
+    description: 'A modern, responsive portfolio website built with React and Vite to showcase my projects and skills. Features smooth animations and a custom design.',
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    tech: ['React', 'Vite', 'CSS'],
+    github: 'https://github.com/Faiz9100/Personal-portfolio-website-',
+    demo: '#'
+  }
+]
+
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -65,11 +97,13 @@ function App() {
   const summaryRef = useScrollAnimation()
   const skillsHeaderRef = useScrollAnimation()
   const aboutHeaderRef = useScrollAnimation()
+  const projectsHeaderRef = useScrollAnimation()
   const contactHeaderRef = useScrollAnimation()
 
   // Section Refs for Page Transitions
   const skillsSectionRef = useScrollAnimation()
   const aboutSectionRef = useScrollAnimation()
+  const projectsSectionRef = useScrollAnimation()
   const contactSectionRef = useScrollAnimation()
 
   const greetings = [
@@ -159,7 +193,7 @@ function App() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'skills', 'about', 'contact']
+      const sections = ['home', 'skills', 'about', 'projects', 'contact']
       const scrollPosition = window.scrollY
 
       for (let section of sections) {
@@ -182,6 +216,7 @@ function App() {
     { label: 'Home', id: 'home' },
     { label: 'Skills', id: 'skills' },
     { label: 'About', id: 'about' },
+    { label: 'Projects', id: 'projects' },
     { label: 'Contact', id: 'contact' },
   ]
 
@@ -382,6 +417,50 @@ function App() {
 
           <div className="coming-soon">
             <p>More education details and personal information coming soon...</p>
+          </div>
+        </div>
+      </div>
+
+      {/* PROJECTS SECTION */}
+      <div id="projects" className="projects-page section-reveal" ref={projectsSectionRef}>
+        <div className="projects-container">
+          <div className="projects-header scroll-animate" ref={projectsHeaderRef}>
+            <h2 className="projects-title">My <span className="title-highlight">Projects</span></h2>
+            <p className="projects-subtitle">Recent work and personal projects</p>
+          </div>
+
+          <div className="projects-grid">
+            {projectsData.map((project, index) => (
+              <div key={index} className="project-card">
+                <div className="project-image-container">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <div className="project-overlay">
+                    <div className="project-links">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link" title="View Code">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                      </a>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link" title="Live Demo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.47 16.47a.75.75 0 101.06 1.06l10.03-10.03v7.19c0 .414.336.75.75.75z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="project-content">
+                  <div className="project-category">{project.category}</div>
+                  <h3 className="project-name">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-tech-stack">
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
